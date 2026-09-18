@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta name="google-site-verification" content="9HA8ilFsgUK1H2dty9-LZAij4goqhYVyiOmIhKSuRmY" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEGORA - Empleo, Capacitación y Gestión de Talento</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            dark: '#0f172a',
+                            accent: '#10b981',
+                            purple: '#6366f1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0284c7 0%, #4338ca 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white custom-scrollbar">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-indigo-950 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
+        <span class="inline-block bg-brand-500/30 text-sky-200 text-xs px-2 py-0.5 rounded-full mr-2 font-semibold">Novedad</span>
+        ¡Próximo inicio de capacitaciones intensivas con certificación laboral! 
+        <a href="#capacitaciones" class="underline hover:text-sky-300 font-bold ml-1">Ver cursos disponibles &rarr;</a>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#inicio" onclick="showSection('inicio')" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-2xl shadow-md group-hover:scale-105 transition-transform">
+                        N
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-tight text-slate-900 group-hover:text-brand-700 transition-colors">NEGORA</span>
+                        <span class="block text-[10px] font-semibold uppercase tracking-widest text-slate-500 -mt-1">Talento & Capacitación</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+                    <button onclick="showSection('inicio')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="inicio">Inicio</button>
+                    <button onclick="showSection('personas')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="personas">Para Personas</button>
+                    <button onclick="showSection('empresas')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="empresas">Para Empresas</button>
+                    <button onclick="showSection('empleos')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="empleos">Ofertas</button>
+                    <button onclick="showSection('capacitaciones')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="capacitaciones">Capacitaciones</button>
+                    <button onclick="showSection('servicios')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="servicios">Servicios</button>
+                    <button onclick="showSection('nosotros')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="nosotros">Nosotros</button>
+                    <button onclick="showSection('blog')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="blog">Blog</button>
+                    <button onclick="showSection('contacto')" class="nav-btn px-3 py-2 text-sm font-semibold text-slate-700 hover:text-brand-600 hover:bg-slate-100/80 rounded-lg transition-all" data-sec="contacto">Contacto</button>
+                </nav>
+
+                <!-- Desktop CTAs -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <button onclick="openModal('modal-cand-reg')" class="text-sm font-semibold text-brand-700 hover:text-brand-800 px-3 py-2 rounded-lg hover:bg-brand-50 transition-all">
+                        <i class="fa-solid fa-user-plus mr-1"></i> Regístrate
+                    </button>
+                    <button onclick="showSection('portal')" class="bg-gradient-to-r from-brand-700 to-indigo-700 hover:from-brand-800 hover:to-indigo-800 text-white text-sm font-bold px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high text-xs"></i> Portal NEGORA
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Hamburger Toggle -->
+                <div class="flex lg:hidden items-center gap-2">
+                    <button onclick="showSection('portal')" class="bg-brand-600 text-white p-2 text-xs rounded-lg font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-gauge-high"></i> Portal
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <button onclick="mobileNav('inicio')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Inicio</button>
+            <button onclick="mobileNav('personas')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Para Personas</button>
+            <button onclick="mobileNav('empresas')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Para Empresas</button>
+            <button onclick="mobileNav('empleos')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Ofertas de Empleo</button>
+            <button onclick="mobileNav('capacitaciones')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Capacitaciones</button>
+            <button onclick="mobileNav('servicios')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Servicios Adicionales</button>
+            <button onclick="mobileNav('funcionamiento')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">¿Cómo Funciona?</button>
+            <button onclick="mobileNav('nosotros')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Nosotros</button>
+            <button onclick="mobileNav('blog')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Blog / Recursos</button>
+            <button onclick="mobileNav('contacto')" class="block w-full text-left px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-100">Contacto</button>
+            <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="openModal('modal-cand-reg'); toggleMobileMenu();" class="w-full text-center py-2.5 text-sm font-bold text-brand-700 bg-brand-50 rounded-xl">Crear Cuenta Candidate/Empresa</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN WRAPPER FOR SECTIONS -->
+    <main class="min-h-screen">
+
+        <section id="sec-inicio" class="section-block">
+            <!-- Hero Container -->
+            <div class="relative bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white overflow-hidden py-16 sm:py-24">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                        
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 text-sky-300 text-xs sm:text-sm font-semibold border border-brand-500/30">
+                                <i class="fa-solid fa-briefcase text-brand-400"></i> Agilidad & Ecosistema de Talento Integral
+                            </span>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                                Conectamos <span class="gradient-text bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300">talento</span> con verdaderas oportunidades.
+                            </h1>
+                            <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
+                                En <strong class="text-white">NEGORA</strong> preparamos, orientamos y conectamos a las personas con empresas que buscan profesionalismo, compromiso e impacto sostenible.
+                            </p>
+                            
+                            <!-- CTAs -->
+                            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                                <button onclick="showSection('empleos')" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl shadow-lg hover:shadow-brand-500/25 transition-all text-base flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-magnifying-glass"></i> Busco Empleo
+                                </button>
+                                <button onclick="showSection('empresas')" class="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-bold rounded-xl shadow transition-all text-base flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-building"></i> Busco Talento
+                                </button>
+                            </div>
+
+                            <!-- Live Quick Search -->
+                            <div class="mt-8 pt-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">Búsqueda rápida de vacantes:</p>
+                                <div class="bg-white p-2 rounded-2xl shadow-2xl flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto lg:mx-0">
+                                    <div class="flex-1 flex items-center px-3 gap-2 text-slate-700">
+                                        <i class="fa-solid fa-search text-slate-400"></i>
+                                        <input type="text" id="hero-search-input" placeholder="Ej: Asesor de Ventas, Desarrollador, Contador..." class="w-full py-2 text-sm focus:outline-none text-slate-900 placeholder-slate-400">
+                                    </div>
+                                    <button onclick="quickHeroSearch()" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-colors">
+                                        Buscar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Graphic Card -->
+                        <div class="lg:col-span-5">
+                            <div class="relative mx-auto max-w-md bg-gradient-to-b from-slate-800/90 to-slate-900/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+                                <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-6">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                                            <i class="fa-solid fa-bolt"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-white">Impacto NEGORA</h4>
+                                            <p class="text-xs text-slate-400">Resultados en tiempo real</p>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-400/10 text-emerald-400">Activos</span>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 flex items-center justify-between">
+                                        <div>
+                                            <p class="text-xs text-slate-400">Talentos Conectados</p>
+                                            <p class="text-2xl font-black text-white">+4,850</p>
+                                        </div>
+                                        <i class="fa-solid fa-user-check text-2xl text-brand-400"></i>
+                                    </div>
+                                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 flex items-center justify-between">
+                                        <div>
+                                            <p class="text-xs text-slate-400">Empresas Aliadas</p>
+                                            <p class="text-2xl font-black text-white">+320</p>
+                                        </div>
+                                        <i class="fa-solid fa-handshake text-2xl text-indigo-400"></i>
+                                    </div>
+                                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 flex items-center justify-between">
+                                        <div>
+                                            <p class="text-xs text-slate-400">Empleabilidad de Egresados</p>
+                                            <p class="text-2xl font-black text-emerald-400">94.2%</p>
+                                        </div>
+                                        <i class="fa-solid fa-chart-line text-2xl text-emerald-400"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 pt-4 text-center">
+                                    <a href="#funcionamiento" onclick="showSection('funcionamiento')" class="text-xs text-sky-400 hover:text-sky-300 font-semibold inline-flex items-center gap-1">
+                                        Conoce cómo funciona nuestra metodología &rarr;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Pillars Section -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Tres pilares que transforman el mercado laboral</h2>
+                    <p class="mt-2 text-slate-600">Un enfoque holístico para potenciar personas e impulsar organizaciones.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pillar 1 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">🎓 Capacitación</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Preparamos a las personas para las exigencias reales del mundo laboral moderno mediante habilidades técnicas y competencias blandas de alto valor.
+                        </p>
+                        <button onclick="showSection('capacitaciones')" class="text-sm font-bold text-brand-600 hover:text-brand-700 inline-flex items-center gap-1">
+                            Explorar programas <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">🤝 Conexión</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Acercamos de manera ágil y filtrada a candidatos talentosos con empresas que valoran la ética, el profesionalismo y la iniciativa.
+                        </p>
+                        <button onclick="showSection('empleos')" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-1">
+                            Ver oportunidades <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition-all group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">📈 Desarrollo</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Impulsamos el crecimiento profesional sostenible de los colaboradores y optimizamos la retención del talento en las organizaciones.
+                        </p>
+                        <button onclick="showSection('servicios')" class="text-sm font-bold text-emerald-600 hover:text-emerald-700 inline-flex items-center gap-1">
+                            Servicios corporativos <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Vacancies Preview on Home -->
+            <div class="bg-slate-100/80 py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Vacantes Destacadas</span>
+                            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Oportunidades Laborales Recientes</h2>
+                        </div>
+                        <button onclick="showSection('empleos')" class="px-5 py-2.5 bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 rounded-xl font-bold text-sm transition-all shadow-sm">
+                            Ver Bolsa de Trabajo Completa &rarr;
+                        </button>
+                    </div>
+
+                    <div id="home-vacancies-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Dynamic content filled by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-personas" class="section-block hidden">
+            <div class="bg-gradient-to-b from-brand-900 to-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+                    <span class="inline-block px-3 py-1 bg-brand-500/20 text-sky-300 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Para Candidatos & Buscadores de Empleo</span>
+                    <h1 class="text-3xl sm:text-5xl font-black mb-4">Encuentra tu verdadera oportunidad laboral</h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        ¿Buscas empleo pero no sabes por dónde empezar? En NEGORA no te dejamos solo en una base de datos passive: te preparamos, pulimos tu perfil y te conectamos de forma proactiva.
+                    </p>
+                    <div class="mt-8 flex justify-center gap-4">
+                        <button onclick="openModal('modal-cand-reg')" class="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-extrabold rounded-xl shadow-lg transition-all text-base">
+                            <i class="fa-solid fa-user-plus mr-2"></i> Crear mi Perfil Gratis
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Steps Timeline for Candidates -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Tu Camino hacia el Éxito Profesional</h2>
+                    <p class="text-slate-600 mt-2">Un proceso diseñado para maximizar tus posibilidades de contratación.</p>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-6 relative">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center relative shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-brand-100 text-brand-700 font-black text-xl flex items-center justify-center mx-auto mb-4">1</div>
+                        <h3 class="font-bold text-slate-900 mb-2">1. Regístrate</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Completa tus datos personales, experiencia y expectativas laborales.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center relative shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-700 font-black text-xl flex items-center justify-center mx-auto mb-4">2</div>
+                        <h3 class="font-bold text-slate-900 mb-2">2. Evaluamos</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Conocemos a fondo tus habilidades blandas, fortalezas e intereses profesionales.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center relative shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-700 font-black text-xl flex items-center justify-center mx-auto mb-4">3</div>
+                        <h3 class="font-bold text-slate-900 mb-2">3. Te preparamos</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Accedes a módulos de orientación, optimización de CV y simulacro de entrevistas.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center relative shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-teal-100 text-teal-700 font-black text-xl flex items-center justify-center mx-auto mb-4">4</div>
+                        <h3 class="font-bold text-slate-900 mb-2">4. Conectamos</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Te presentamos directamente ante empresas que buscan perfiles como el tuyo.</p>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center relative shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 font-black text-xl flex items-center justify-center mx-auto mb-4">5</div>
+                        <h3 class="font-bold text-slate-900 mb-2">5. Seguimiento</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Te acompañamos durante tu incorporación para garantizar tu adaptación exitosa.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-100 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-3 max-w-xl">
+                        <span class="text-xs font-bold text-brand-700 uppercase tracking-widest">¿CV Desactualizado o sin experiencia previa?</span>
+                        <h3 class="text-2xl font-bold text-slate-900">Impulsa tu competitividad laboral con NEGORA</h3>
+                        <p class="text-sm text-slate-600">
+                            Nuestras capacitaciones cortas con alta demanda te otorgan el sello de calidad que las empresas están buscando hoy.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                        <button onclick="showSection('capacitaciones')" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-sm shadow transition-all">
+                            Ver Cursos y Talleres
+                        </button>
+                        <button onclick="openModal('modal-cand-reg')" class="px-6 py-3 bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 font-bold rounded-xl text-sm transition-all">
+                            Crear mi Perfil
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-empresas" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-16 border-b border-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <span class="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-bold uppercase tracking-wider">Soluciones de Talento B2B</span>
+                        <h1 class="text-3xl sm:text-5xl font-black leading-tight">Encuentra el talento que tu empresa realmente necesita</h1>
+                        <p class="text-slate-300 text-base sm:text-lg">
+                            En NEGORA ayudamos a las organizaciones a identificar, seleccionar, capacitar e integrar profesionales preparados y alineados con sus objetivos del negocio.
+                        </p>
+                        <div class="pt-2">
+                            <button onclick="openModal('modal-emp-reg')" class="px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white font-extrabold rounded-xl shadow-lg transition-all text-base flex items-center gap-2">
+                                <i class="fa-solid fa-briefcase"></i> Solicitar Talento / Publicar Vacante
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 bg-slate-800/80 p-6 rounded-2xl border border-slate-700 space-y-4">
+                        <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-3">Garantía NEGORA para Empresas</h3>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <p class="text-xs text-slate-300"><strong class="text-white">Reducción del Tiempo de Contratación:</strong> Presentación de terna evaluada en menos de 72 horas.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <p class="text-xs text-slate-300"><strong class="text-white">Candidatos Pre-Capacitados:</strong> Validación previa de competencias operativas y actitudinales.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <p class="text-xs text-slate-300"><strong class="text-white">Garantía de Reemplazo:</strong> Cobertura sin costo adicional en caso de desvinculación temprana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corporate Services Breakdown -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Servicios Especializados para Empresas</h2>
+                    <p class="text-slate-600 mt-2">Flexibilidad y precisión según la etapa de crecimiento de tu organización.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Selección de Personal</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                                <li>• Búsqueda activa de candidatos</li>
+                                <li>• Filtro curricular exigente</li>
+                                <li>• Entrevistas por competencias</li>
+                                <li>• Verificación de antecedentes</li>
+                            </ul>
+                        </div>
+                        <button onclick="openModal('modal-emp-reg')" class="w-full py-2 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-slate-800 text-xs font-bold rounded-lg transition-colors">Solicitar Selección</button>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Capacitación a Medida</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                                <li>• Programas ad-hoc según requerimiento</li>
+                                <li>• Entrenamiento en atención al cliente</li>
+                                <li>• Liderazgo y ventas de alto impacto</li>
+                                <li>• Adopción de herramientas digitales</li>
+                            </ul>
+                        </div>
+                        <button onclick="openModal('modal-emp-reg')" class="w-full py-2 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-800 text-xs font-bold rounded-lg transition-colors">Cotizar Programa</button>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Evaluación Psicolaboral</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                                <li>• Pruebas psicométricas y proyectivas</li>
+                                <li>• Evaluación de ajuste a la cultura</li>
+                                <li>• Assessment Center grupal</li>
+                                <li>• Informe detallado por candidato</li>
+                            </ul>
+                        </div>
+                        <button onclick="openModal('modal-emp-reg')" class="w-full py-2 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-800 text-xs font-bold rounded-lg transition-colors">Solicitar Evaluaciones</button>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-sitemap"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Gestión de Talento</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                                <li>• Onboarding e integración laboral</li>
+                                <li>• Medición de clima organizacional</li>
+                                <li>• Retención e incentivos</li>
+                                <li>• Diagnóstico de desempeño laboral</li>
+                            </ul>
+                        </div>
+                        <button onclick="openModal('modal-emp-reg')" class="w-full py-2 bg-slate-100 hover:bg-purple-50 hover:text-purple-700 text-slate-800 text-xs font-bold rounded-lg transition-colors">Consultoría HR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-empleos" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 class="text-2xl sm:text-4xl font-black mb-2">Bolsa de Empleo NEGORA</h1>
+                    <p class="text-slate-400 text-sm sm:text-base">Explora oportunidades verificadas y postula de manera rápida e inteligente.</p>
+
+                    <!-- Filter Controls Bar -->
+                    <div class="mt-8 bg-slate-800 p-4 sm:p-6 rounded-2xl border border-slate-700 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                        
+                        <!-- Keyword -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">Buscar Puesto / Palabra clave</label>
+                            <input type="text" id="filter-keyword" onkeyup="filterJobs()" placeholder="Ej: Vendedor, Cajero..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500">
+                        </div>
+
+                        <!-- Location -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">Ubicación</label>
+                            <select id="filter-location" onchange="filterJobs()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                                <option value="all">Todas las ubicaciones</option>
+                                <option value="Lima">Lima</option>
+                                <option value="Arequipa">Arequipa</option>
+                                <option value="Trujillo">Trujillo</option>
+                                <option value="Remoto">Remoto (Nacional)</option>
+                            </select>
+                        </div>
+
+                        <!-- Modality -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">Modalidad</label>
+                            <select id="filter-modality" onchange="filterJobs()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                                <option value="all">Todas las modalidades</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Híbrido">Híbrido</option>
+                                <option value="Remoto">Remoto</option>
+                            </select>
+                        </div>
+
+                        <!-- Category -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">Área Laboral</label>
+                            <select id="filter-area" onchange="filterJobs()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                                <option value="all">Todas las áreas</option>
+                                <option value="Ventas">Ventas y Comercio</option>
+                                <option value="Administración">Administración & Oficina</option>
+                                <option value="Tecnología">Tecnología & TI</option>
+                                <option value="Atención al Cliente">Atención al Cliente</option>
+                                <option value="Operaciones">Operaciones & Logística</option>
+                            </select>
+                        </div>
+
+                        <!-- Reset Button -->
+                        <div class="flex items-end">
+                            <button onclick="resetJobFilters()" class="w-full py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-rotate-left text-xs"></i> Limpiar Filtros
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Cards Container -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex items-center justify-between mb-6">
+                    <p class="text-sm font-semibold text-slate-600"><span id="jobs-count" class="font-bold text-brand-700">0</span> ofertas encontradas</p>
+                    <span class="text-xs text-slate-500">Actualizado recientemente</span>
+                </div>
+
+                <div id="jobs-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-capacitaciones" class="section-block hidden">
+            <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Academia & Formación NEGORA</span>
+                    <h1 class="text-3xl sm:text-5xl font-black mb-4">Prepárate para nuevas y mejores oportunidades</h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Nuestras capacitaciones están diseñadas bajo la demanda real de los empleadores. Desarrolla las competencias que te harán destacar inmediatamente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <!-- Course Categories Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10" id="course-category-tabs">
+                    <button onclick="filterCourses('todos', this)" class="course-tab-btn active px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-600 text-white shadow-sm transition-all">Todos los Cursos</button>
+                    <button onclick="filterCourses('Tecnología', this)" class="course-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all">💻 Tecnología & Digital</button>
+                    <button onclick="filterCourses('Habilidades Blandas', this)" class="course-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all">🗣️ Habilidades Blandas</button>
+                    <button onclick="filterCourses('Preparación Laboral', this)" class="course-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all">💼 Preparación Laboral</button>
+                    <button onclick="filterCourses('Capacitación Empresarial', this)" class="course-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all">🏢 Capacitación Empresarial</button>
+                </div>
+
+                <!-- Courses Grid -->
+                <div id="courses-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-servicios" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+                    <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Catálogo Integral de Soluciones</span>
+                    <h1 class="text-3xl sm:text-5xl font-black mb-4">Servicios Especializados NEGORA</h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Soluciones modulares e integrales tanto para personas en búsqueda de impulso laboral como para empresas que requieren alta performance en talento.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                
+                <div class="grid lg:grid-cols-3 gap-8">
+                    
+                    <!-- For Individuals -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-extrabold text-slate-900">Para Personas</h3>
+                                    <p class="text-xs text-slate-500">Impulso de Empleabilidad Individual</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 text-xs text-slate-700 mb-8">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-brand-600 mt-0.5"></i>
+                                    <span><strong>Elaboración y Rediseño de CV:</strong> Adaptado a sistemas ATS de selección automatizada.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-brand-600 mt-0.5"></i>
+                                    <span><strong>Orientación Laboral 1 a 1:</strong> Mentoría personalizada de carrera y definición de perfil meta.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-brand-600 mt-0.5"></i>
+                                    <span><strong>Simulacro de Entrevista:</strong> Práctica intensiva con feedback real de reclutadores.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-brand-600 mt-0.5"></i>
+                                    <span><strong>Optimización de Perfil LinkedIn:</strong> Posicionamiento para atracción de reclutadores.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="showSection('contacto')" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl transition-colors">Solicitar Asesoría de CV</button>
+                    </div>
+
+                    <!-- For Enterprises -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-building-user"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-extrabold text-slate-900">Para Empresas</h3>
+                                    <p class="text-xs text-slate-500">Gestión Estratégica de Talento</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 text-xs text-slate-700 mb-8">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                    <span><strong>Recruiting & Headhunting:</strong> Búsqueda de mandos medios, técnicos y ejecutivos.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                    <span><strong>Evaluación Psicolaboral Expres:</strong> Diagnósticos ágiles con informe en 24h.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                    <span><strong>Capacitación In-Company:</strong> Módulos presenciales o virtuales para equipos.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-indigo-600 mt-0.5"></i>
+                                    <span><strong>Acompañamiento en Contratación:</strong> Asistencia en proceso legal y de inducción.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="openModal('modal-emp-reg')" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl transition-colors">Solicitar Propuesta B2B</button>
+                    </div>
+
+                    <!-- Special Services -->
+                    <div class="bg-gradient-to-b from-slate-900 to-indigo-950 text-white rounded-3xl p-8 border border-slate-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-extrabold text-white">Servicios Especiales</h3>
+                                    <p class="text-xs text-slate-400">Soluciones a Medida & Futuras</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 text-xs text-slate-300 mb-8">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-star text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Programas de Outplacement:</strong> Transición de carrera para personal desvinculado.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-star text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Feria de Empleo Virtual/Presencial:</strong> Organización de eventos de reclutamiento masivo.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-star text-emerald-400 mt-0.5"></i>
+                                    <span><strong>Certificación de Competencias:</strong> Validación técnica independiente de habilidades.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="showSection('contacto')" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs rounded-xl transition-colors">Consultar Solución Especial</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-funcionamiento" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+                    <span class="inline-block px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Metodología Transparente</span>
+                    <h1 class="text-3xl sm:text-5xl font-black mb-4">¿Cómo funciona el modelo NEGORA?</h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Un ecosistema diseñado para maximizar el valor en cada interacción entre candidatos y organizaciones.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <!-- Dual Switch: Persona vs Empresa -->
+                <div class="flex justify-center mb-12">
+                    <div class="bg-slate-200 p-1.5 rounded-2xl flex items-center gap-1">
+                        <button id="btn-flow-cand" onclick="switchWorkflow('candidate')" class="px-6 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-slate-900 shadow-sm transition-all">
+                            <i class="fa-solid fa-user mr-1.5"></i> Flujo para Personas
+                        </button>
+                        <button id="btn-flow-emp" onclick="switchWorkflow('employer')" class="px-6 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-all">
+                            <i class="fa-solid fa-building mr-1.5"></i> Flujo para Empresas
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Candidate Flow Visualization -->
+                <div id="flow-candidate-view" class="space-y-6 max-w-4xl mx-auto">
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-brand-100 text-brand-700 font-extrabold text-xl flex items-center justify-center">01</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Registro de Candidato en Plataforma</h3>
+                            <p class="text-xs text-slate-600">Creación de cuenta, carga de datos curriculares, habilidades clave y preferencias de horarios/modalidades.</p>
+                        </div>
+                    </div>
+                    <div class="text-center text-brand-600"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-indigo-100 text-indigo-700 font-extrabold text-xl flex items-center justify-center">02</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Evaluación Diagnóstica Inicial</h3>
+                            <p class="text-xs text-slate-600">Identificación de competencias y áreas de oportunidad para enfocar la búsqueda laboral.</p>
+                        </div>
+                    </div>
+                    <div class="text-center text-indigo-600"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-purple-100 text-purple-700 font-extrabold text-xl flex items-center justify-center">03</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Capacitación y Optimización de Perfil</h3>
+                            <p class="text-xs text-slate-600">Acceso a talleres de desempeño, diseño estratégico de CV y simulacros de entrevista.</p>
+                        </div>
+                    </div>
+                    <div class="text-center text-purple-600"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-emerald-100 text-emerald-700 font-extrabold text-xl flex items-center justify-center">04</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Presentación Directa a Empresas & Contratación</h3>
+                            <p class="text-xs text-slate-600">Postulación activa a convocatorias exclusivas con acompañamiento continúo de NEGORA.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employer Flow Visualization -->
+                <div id="flow-employer-view" class="space-y-6 max-w-4xl mx-auto hidden">
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-slate-900 text-white font-extrabold text-xl flex items-center justify-center">01</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Solicitud de Talento o Publicación de Vacante</h3>
+                            <p class="text-xs text-slate-600">La empresa especifica el perfil del puesto, competencias requeridas y términos de contratación.</p>
+                        </div>
+                    </div>
+                    <div class="text-center text-slate-700"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-slate-900 text-white font-extrabold text-xl flex items-center justify-center">02</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Análisis, Filtro y Selección por NEGORA</h3>
+                            <p class="text-xs text-slate-600">Filtramos la base de talentos, evaluamos habilidades y realizamos preentrevistas especializadas.</p>
+                        </div>
+                    </div>
+                    <div class="text-center text-slate-700"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-slate-900 text-white font-extrabold text-xl flex items-center justify-center">03</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Presentación de Terna Evaluada</h3>
+                            <p class="text-xs text-slate-600">Entregamos informe psicolaboral y CVs de candidatos listos e idóneos para la última fase.</p>
+                        </div>
+                    </div>
+                    <div class="text-center text-slate-700"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-emerald-600 text-white font-extrabold text-xl flex items-center justify-center">04</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Selección Final e Incorporación Exitosa</h3>
+                            <p class="text-xs text-slate-600">La empresa efectúa la selección con el respaldo y garantía de sustitución de NEGORA.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="sec-nosotros" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+                    <span class="inline-block px-3 py-1 bg-brand-500/20 text-sky-300 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Sobre NEGORA</span>
+                    <h1 class="text-3xl sm:text-5xl font-black mb-4">Impulsando personas, fortaleciendo empresas</h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Somos una empresa orientada a conectar personas y organizaciones mediante soluciones integrales de empleo, capacitación continua y gestión estratégica del talento.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                
+                <!-- Mission & Vision -->
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-gradient-to-br from-white to-sky-50 p-8 rounded-3xl border border-sky-100 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Nuestra Misión</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Conectar talento con oportunidades reales mediante procesos transparentes de orientación, capacitación práctica y selección rigurosa que generen valor medible para las personas y el desarrollo de las empresas.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-white to-indigo-50 p-8 rounded-3xl border border-indigo-100 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Nuestra Visión</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Ser la organización referente e innovadora en facilitar el acceso efectivo a oportunidades laborales dignas, transformando el aprendizaje continuo en el principal activo competitivo de los trabajadores.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Values -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Nuestros Valores Fundamentales</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 text-center shadow-sm">
+                        <div class="w-14 h-14 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Confianza</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Construimos relaciones transparentes, honestas y de largo plazo con cada persona y empresa aliada.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 text-center shadow-sm">
+                        <div class="w-14 h-14 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-heart-circle-check"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Compromiso</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Trabajamos de manera responsable para superar las expectativas en cada proceso de inserción y formación.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 text-center shadow-sm">
+                        <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">Desarrollo</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Buscamos generar un impacto positivo permanente que promueva la superación constante.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="sec-blog" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+                    <h1 class="text-3xl font-black mb-2">Blog & Recursos Laborales</h1>
+                    <p class="text-slate-400 text-sm">Consejos prácticos, tendencias de mercado y guías para potenciar tu empleabilidad.</p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-contacto" class="section-block hidden">
+            <div class="bg-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+                    <h1 class="text-3xl sm:text-4xl font-black mb-2">Ponte en contacto con NEGORA</h1>
+                    <p class="text-slate-400 text-sm">Estamos listos para resolver tus dudas y acompañarte en tu siguiente paso.</p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Information -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+                            <h3 class="text-xl font-bold text-slate-900">Canales Directos</h3>
+                            
+                            <a href="https://wa.me/51999999999" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100 transition-colors border border-emerald-200/60 group">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Atención inmediata WhatsApp</h4>
+                                    <p class="text-xs text-slate-600">+51 987 654 321</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                                <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Correo Electrónico</h4>
+                                    <p class="text-xs text-slate-600">contacto@negora.pe</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Oficina Principal</h4>
+                                    <p class="text-xs text-slate-600">Av. Javier Prado Este 1234, San Isidro, Lima, Perú</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Síguenos en Redes</h4>
+                                <div class="flex gap-3">
+                                    <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-700 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-700 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white flex items-center justify-center text-slate-700 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-md">
+                            <h3 class="text-xl font-bold text-slate-900 mb-6">Enviarnos un mensaje</h3>
+                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1">Nombre Completo *</label>
+                                        <input type="text" required placeholder="Ej: Juan Pérez" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-600 focus:bg-white">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+                                        <input type="email" required placeholder="tu@correo.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-600 focus:bg-white">
+                                    </div>
+                                </div>
+
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                                        <input type="tel" required placeholder="+51 987654321" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-600 focus:bg-white">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1">Motivo de Contacto *</label>
+                                        <select required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-600 focus:bg-white">
+                                            <option value="">Selecciona una opción</option>
+                                            <option value="busco-trabajo">Soy Candidato (Busco Trabajo)</option>
+                                            <option value="capacitaciones">Información de Capacitaciones</option>
+                                            <option value="empresa">Soy Empresa (Requiero Talento)</option>
+                                            <option value="servicios">Servicios Adicionales / Consultoría</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Mensaje *</label>
+                                    <textarea rows="4" required placeholder="Escribe tu consulta en detalle..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-600 focus:bg-white"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-sm shadow transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-portal" class="section-block hidden bg-slate-100 min-h-screen py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Portal Header Switch Bar -->
+                <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-xl mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-bold text-2xl">
+                            N
+                        </div>
+                        <div>
+                            <span class="text-xs text-sky-400 font-bold uppercase tracking-wider">Simulación Interactiva</span>
+                            <h2 class="text-2xl font-black">Portal Privado NEGORA</h2>
+                        </div>
+                    </div>
+
+                    <!-- Role Toggle Button -->
+                    <div class="bg-slate-800 p-1 rounded-xl flex items-center gap-1 border border-slate-700">
+                        <button id="portal-role-cand" onclick="switchPortalRole('candidate')" class="px-4 py-2 rounded-lg text-xs font-bold bg-brand-600 text-white transition-all">
+                            <i class="fa-solid fa-user-circle mr-1"></i> Vista Candidato
+                        </button>
+                        <button id="portal-role-emp" onclick="switchPortalRole('employer')" class="px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all">
+                            <i class="fa-solid fa-building mr-1"></i> Vista Empresa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CANDIDATE PORTAL DASHBOARD -->
+                <div id="portal-candidate-dashboard" class="space-y-6">
+                    
+                    <!-- Top Summary Card -->
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">Estado del Perfil</p>
+                            <p class="text-xl font-bold text-slate-900 mt-1">92% Completo</p>
+                            <div class="w-full bg-slate-100 h-2 rounded-full mt-2 overflow-hidden">
+                                <div class="bg-emerald-500 h-full w-[92%]"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">Postulaciones Activas</p>
+                            <p class="text-xl font-bold text-brand-700 mt-1">3 Procesos</p>
+                            <span class="text-[10px] text-emerald-600 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i>1 Entrevista Pendiente</span>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">Mis Capacitaciones</p>
+                            <p class="text-xl font-bold text-indigo-700 mt-1">1 En Curso</p>
+                            <span class="text-[10px] text-indigo-600 font-semibold">Excel Profesional B2B</span>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">CV NEGORA Registrado</p>
+                            <p class="text-sm font-bold text-slate-800 mt-1 truncate">CV_Juan_Perez_2026.pdf</p>
+                            <button onclick="showToast('Sustitución de CV simulada con éxito', 'info')" class="text-[10px] text-brand-600 font-bold underline mt-1">Actualizar archivo</button>
+                        </div>
+                    </div>
+
+                    <!-- Application Tracking & Recommendations -->
+                    <div class="grid lg:grid-cols-12 gap-6">
+                        
+                        <!-- Status Tracker -->
+                        <div class="lg:col-span-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center justify-between">
+                                <span>Mis Postulaciones Recientes</span>
+                                <span class="text-xs font-normal text-slate-500">Últimos 30 días</span>
+                            </h3>
+
+                            <div class="space-y-3">
+                                <div class="p-4 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Asesor de Ventas & Atención Telefónica</h4>
+                                        <p class="text-xs text-slate-500">Telecorp Perú • Lima</p>
+                                    </div>
+                                    <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">
+                                        <i class="fa-solid fa-clock text-[10px] mr-1"></i> En Evaluación Psicolaboral
+                                    </span>
+                                </div>
+
+                                <div class="p-4 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Asistente Administrativo de Logística</h4>
+                                        <p class="text-xs text-slate-500">LogisCorp • Callao</p>
+                                    </div>
+                                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">
+                                        <i class="fa-solid fa-calendar-check text-[10px] mr-1"></i> Entrevista Programada
+                                    </span>
+                                </div>
+
+                                <div class="p-4 rounded-xl border border-slate-100 bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Soporte Técnico de Helpdesk</h4>
+                                        <p class="text-xs text-slate-500">Innovatech • Remoto</p>
+                                    </div>
+                                    <span class="px-3 py-1 bg-slate-200 text-slate-700 text-xs font-bold rounded-full">
+                                        Recibido
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recommendations Panel -->
+                        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <h3 class="text-base font-bold text-slate-900 mb-4">Recomendaciones para ti</h3>
+                            <div class="space-y-4">
+                                <div class="p-3 bg-brand-50/60 rounded-xl border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800">Curso sugerido:</p>
+                                    <p class="text-xs font-semibold text-slate-800">Comunicación Asertiva en Entrevistas</p>
+                                    <button onclick="showSection('capacitaciones')" class="text-[11px] text-brand-700 font-bold underline mt-1">Ver detalles &rarr;</button>
+                                </div>
+                                <div class="p-3 bg-indigo-50/60 rounded-xl border border-indigo-100">
+                                    <p class="text-xs font-bold text-indigo-800">Mejora tu empleabilidad:</p>
+                                    <p class="text-xs font-semibold text-slate-800">Agrega 2 referencias laborales adicionales</p>
+                                    <button onclick="showToast('Sección de referencias abierta', 'info')" class="text-[11px] text-indigo-700 font-bold underline mt-1">Agregar ahora &rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- EMPLOYER PORTAL DASHBOARD -->
+                <div id="portal-employer-dashboard" class="space-y-6 hidden">
+                    
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">Vacantes Activas</p>
+                            <p class="text-2xl font-black text-slate-900 mt-1">2 Procesos</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">Candidatos Pre-seleccionados</p>
+                            <p class="text-2xl font-black text-emerald-600 mt-1">14 Perfiles</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-500">Tiempos Promedio de Cierre</p>
+                            <p class="text-2xl font-black text-brand-600 mt-1">4.2 Días</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-center">
+                            <button onclick="openModal('modal-emp-reg')" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-plus"></i> Solicitar Nuevo Puesto
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Active Vacancies Table Simulation -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm overflow-x-auto">
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Gestión de Vacantes Activas</h3>
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-50 text-slate-600 font-bold uppercase">
+                                <tr>
+                                    <th class="p-3">Puesto Requerido</th>
+                                    <th class="p-3">Vacantes</th>
+                                    <th class="p-3">Candidatos Recibidos</th>
+                                    <th class="p-3">Estado del Proceso</th>
+                                    <th class="p-3">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-900">Ejecutivo de Ventas B2B</td>
+                                    <td class="p-3 text-slate-600">3 puestos</td>
+                                    <td class="p-3 font-bold text-brand-700">8 Preseleccionados</td>
+                                    <td class="p-3"><span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full font-bold">Terna Lista</span></td>
+                                    <td class="p-3"><button onclick="showToast('Visualizando ternas de candidatos', 'info')" class="text-brand-600 hover:underline font-bold">Ver Ternas</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-900">Supervisora de Atención al Cliente</td>
+                                    <td class="p-3 text-slate-600">1 puesto</td>
+                                    <td class="p-3 font-bold text-brand-700">6 Preseleccionados</td>
+                                    <td class="p-3"><span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full font-bold">En Evaluación</span></td>
+                                    <td class="p-3"><button onclick="showToast('Cargando entrevistas programadas', 'info')" class="text-brand-600 hover:underline font-bold">Ver Avances</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-white border-t border-slate-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center font-black text-2xl text-white">
+                            N
+                        </div>
+                        <span class="text-2xl font-black tracking-tight">NEGORA</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Plataforma integral de empleo, capacitación pràctica y gestión estratégica de talento. Conectamos personas con oportunidades y empresas con el capital humano ideal.
+                    </p>
+                    <div class="flex gap-2 text-xs font-semibold text-brand-400">
+                        <span>Confianza</span> • <span>Compromiso</span> • <span>Desarrollo</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Links 1 -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Para Personas</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#empleos" onclick="showSection('empleos')" class="hover:text-white transition-colors">Buscar Empleo</a></li>
+                        <li><a href="#capacitaciones" onclick="showSection('capacitaciones')" class="hover:text-white transition-colors">Capacitaciones</a></li>
+                        <li><a href="#personas" onclick="showSection('personas')" class="hover:text-white transition-colors">Crear Perfil Prof.</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')" class="hover:text-white transition-colors">Consejos Laborales</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Links 2 -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Para Empresas</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#empresas" onclick="showSection('empresas')" class="hover:text-white transition-colors">Solicitar Talento</a></li>
+                        <li><a href="#empresas" onclick="showSection('empresas')" class="hover:text-white transition-colors">Selección de Personal</a></li>
+                        <li><a href="#servicios" onclick="showSection('servicios')" class="hover:text-white transition-colors">Capacitación Empresarial</a></li>
+                        <li><a href="#servicios" onclick="showSection('servicios')" class="hover:text-white transition-colors">Servicios Especiales</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Links 3 -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">NEGORA</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#nosotros" onclick="showSection('nosotros')" class="hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="#funcionamiento" onclick="showSection('funcionamiento')" class="hover:text-white transition-colors">¿Cómo Funciona?</a></li>
+                        <li><a href="#contacto" onclick="showSection('contacto')" class="hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="#portal" onclick="showSection('portal')" class="hover:text-white transition-colors">Portal Privado</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Legal -->
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 NEGORA. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" onclick="showToast('Términos y Condiciones de Uso', 'info')" class="hover:text-slate-400">Términos y Condiciones</a>
+                    <a href="#" onclick="showToast('Política de Privacidad y Tratamiento de Datos', 'info')" class="hover:text-slate-400">Política de Privacidad</a>
+                    <a href="#" onclick="showToast('Tratamiento de Datos Personales en NEGORA', 'info')" class="hover:text-slate-400">Tratamiento de Datos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal 1: Registro de Candidato -->
+    <div id="modal-cand-reg" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-slate-200 max-h-[90vh] flex flex-col">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div>
+                    <span class="text-xs text-brand-400 font-bold uppercase">Registro de Candidato</span>
+                    <h3 class="text-xl font-bold">Crea tu Perfil Profesional NEGORA</h3>
+                </div>
+                <button onclick="closeModal('modal-cand-reg')" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form id="cand-reg-form" onsubmit="handleCandidateSubmit(event)" class="p-6 overflow-y-auto space-y-4 custom-scrollbar text-xs">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Nombres *</label>
+                        <input type="text" required placeholder="Ej: María Elena" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Apellidos *</label>
+                        <input type="text" required placeholder="Ej: Ramos Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                        <input type="tel" required placeholder="+51 912 345 678" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+                        <input type="email" required placeholder="maria.ramos@gmail.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Área de Interés Principal *</label>
+                        <select required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                            <option value="">Selecciona área</option>
+                            <option value="ventas">Ventas y Comercio</option>
+                            <option value="admin">Administración & Oficina</option>
+                            <option value="atencion">Atención al Cliente</option>
+                            <option value="ti">Tecnología / TI</option>
+                            <option value="operaciones">Operaciones / Logística</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Modalidad Preferida *</label>
+                        <select required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                            <option value="presencial">Presencial</option>
+                            <option value="hibrida">Híbrida</option>
+                            <option value="remota">Remota</option>
+                            <option value="indiferente">Indiferente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Resumen de Experiencia / Habilidades *</label>
+                    <textarea rows="3" required placeholder="Cuéntanos brevemente en qué has trabajado o qué habilidades tienes..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5"></textarea>
+                </div>
+
+                <div class="bg-slate-50 border border-dashed border-slate-300 p-4 rounded-xl text-center">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-brand-600 mb-1"></i>
+                    <p class="font-bold text-slate-800">Adjunta tu CV en PDF o Word (Opcional)</p>
+                    <p class="text-[10px] text-slate-500">Formatos permitidos: .pdf, .docx (Max 5MB)</p>
+                    <input type="file" class="mt-2 text-[10px] mx-auto text-slate-600">
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow transition-colors">
+                    Crear mi Perfil en NEGORA
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2: Solicitar Talento (Empresas) -->
+    <div id="modal-emp-reg" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-slate-200 max-h-[90vh] flex flex-col">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div>
+                    <span class="text-xs text-indigo-400 font-bold uppercase">Solicitud de Empresa</span>
+                    <h3 class="text-xl font-bold">Solicitar Talento o Vacante NEGORA</h3>
+                </div>
+                <button onclick="closeModal('modal-emp-reg')" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form id="emp-reg-form" onsubmit="handleEmployerSubmit(event)" class="p-6 overflow-y-auto space-y-4 custom-scrollbar text-xs">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Nombre de la Empresa *</label>
+                        <input type="text" required placeholder="Ej: Comercial Andina S.A.C." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">RUC *</label>
+                        <input type="text" required placeholder="20123456789" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Nombre de Contacto *</label>
+                        <input type="text" required placeholder="Ej: Carlos Mendívil (HR)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Correo Corporativo *</label>
+                        <input type="email" required placeholder="cmendivil@empresa.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Puesto Requerido *</label>
+                        <input type="text" required placeholder="Ej: Asesor de Ventas Senior" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Número de Trabajadores *</label>
+                        <input type="number" min="1" value="1" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Detalle del Requerimiento / Perfil *</label>
+                    <textarea rows="3" required placeholder="Describe las responsabilidades principales y condiciones del puesto..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm rounded-xl shadow transition-colors">
+                    Solicitar Selección de Candidatos
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 3: Detalle de Oferta + Postulación -->
+    <div id="modal-job-detail" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-slate-200 max-h-[90vh] flex flex-col">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-start">
+                <div>
+                    <span id="modal-job-company" class="text-xs text-sky-400 font-bold">Empresa X</span>
+                    <h3 id="modal-job-title" class="text-xl font-bold">Título de la Vacante</h3>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span id="modal-job-loc" class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px]">Ubicación</span>
+                        <span id="modal-job-mod" class="px-2 py-0.5 rounded bg-brand-500/20 text-sky-300 text-[10px]">Modalidad</span>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-job-detail')" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4 custom-scrollbar text-xs">
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm mb-1">Descripción de las Funciones:</h4>
+                    <p id="modal-job-desc" class="text-slate-600 leading-relaxed"></p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm mb-1">Requisitos:</h4>
+                    <ul id="modal-job-reqs" class="list-disc list-inside text-slate-600 space-y-1"></ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200">
+                    <h4 class="font-bold text-slate-900 text-sm mb-3">Postularme a esta vacante</h4>
+                    <form onsubmit="handleApplyJob(event)" class="space-y-3">
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <input type="text" required placeholder="Tu Nombre Completo *" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
+                            <input type="email" required placeholder="Tu Correo * " class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <input type="tel" required placeholder="Tu WhatsApp *" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
+                            <select class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
+                                <option value="profile-negora">Usar mi Perfil NEGORA registrado</option>
+                                <option value="cv-new">Subir un nuevo CV</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-xs transition-colors">
+                            Confirmar Mi Postulación
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <script>
+        // Mock Data for Jobs
+        const JOBS_DATA = [
+            {
+                id: 1,
+                title: "Asesor de Ventas & Atención al Cliente",
+                company: "Retail Plus Perú",
+                location: "Lima",
+                modality: "Presencial",
+                area: "Ventas",
+                schedule: "Tiempo Completo",
+                salary: "S/ 1,400 + Comisiones",
+                desc: "Buscamos asesores con dinamismo para atención en salón comercial y cierre de ventas telefónicas.",
+                reqs: ["Secundaria completa", "Experiencia previa de 6 meses en ventas", "Disponibilidad inmediata"]
+            },
+            {
+                id: 2,
+                title: "Asistente Administrativo de Logística",
+                company: "Servicios Integrales NEGORA Client",
+                location: "Arequipa",
+                modality: "Híbrido",
+                area: "Administración",
+                schedule: "Tiempo Completo",
+                salary: "S/ 1,800 - S/ 2,200",
+                desc: "Gestión de inventarios, órdenes de compra y coordinación directa con distribuidores locales.",
+                reqs: ["Egresado de Administración o Afines", "Manejo de Excel Intermedio", "Capacidad de organización"]
+            },
+            {
+                id: 3,
+                title: "Desarrollador Web Jr (Frontend)",
+                company: "TechTalent Solutions",
+                location: "Remoto",
+                modality: "Remoto",
+                area: "Tecnología",
+                schedule: "Tiempo Completo",
+                salary: "S/ 2,500 - S/ 3,200",
+                desc: "Desarrollo de interfaces atractivas con HTML, CSS, JavaScript y React para clientes internacionales.",
+                reqs: ["Conocimiento sólido de JS ES6+", "Proyectos previos demostrables en GitHub", "Orientación al detalle"]
+            },
+            {
+                id: 4,
+                title: "Ejecutivo de Reclutamiento & Selección",
+                company: "NEGORA Talent Hub",
+                location: "Lima",
+                modality: "Presencial",
+                area: "Administración",
+                schedule: "Tiempo Completo",
+                salary: "S/ 2,000 + Bonos",
+                desc: "Liderar procesos de filtro curricular, entrevistas por competencias e informes psicolaborales.",
+                reqs: ["Bachiller en Psicología o RRHH", "Experiencia mínima de 1 año en agencias", "Manejo de pruebas psicolaborales"]
+            },
+            {
+                id: 5,
+                title: "Representante de Soporte Telefónico",
+                company: "ConnectCall Center",
+                location: "Trujillo",
+                modality: "Presencial",
+                area: "Atención al Cliente",
+                schedule: "Medio Tiempo",
+                salary: "S/ 850 + Incentivos",
+                desc: "Resolución de incidencias y asesoría técnica telefónica para usuarios de servicios masivos.",
+                reqs: ["Fluidez verbal excelente", "Manejo básico de cómputo", "Empatía y paciencia"]
+            },
+            {
+                id: 6,
+                title: "Coordinador de Operaciones & Despacho",
+                company: "Logística Expres S.A.",
+                location: "Lima",
+                modality: "Presencial",
+                area: "Operaciones",
+                schedule: "Tiempo Completo",
+                salary: "S/ 2,800",
+                desc: "Supervisión de rutas de distribución, control de flota y liderazgo de equipos de almacén.",
+                reqs: ["Experiencia de 2 años en puestos similares", "Licencia de conducir activa (deseable)", "Liderazgo comprobado"]
+            }
+        ];
+
+        // Mock Data for Courses
+        const COURSES_DATA = [
+            {
+                id: 1,
+                title: "Computación Básica & Herramientas Digitales",
+                category: "Tecnología",
+                duration: "20 Horas",
+                modality: "Virtual Asincrónico",
+                desc: "Aprende el uso del sistema operativo, correo corporativo, navegación segura y herramientas de trabajo remoto.",
+                badge: "Ideal Principiantes"
+            },
+            {
+                id: 2,
+                title: "Excel Profesional & Ofimática para la Oficina",
+                category: "Tecnología",
+                duration: "32 Horas",
+                modality: "Híbrido / En Vivo",
+                desc: "Domina fórmulas avanzadas, tablas dinámicas y reportes ejecutivos requeridos en empresas.",
+                badge: "Alta Demanda"
+            },
+            {
+                id: 3,
+                title: "Comunicación Asertiva y Trabajo en Equipo",
+                category: "Habilidades Blandas",
+                duration: "12 Horas",
+                modality: "Presencial",
+                desc: "Potencia tu capacidad de negociación, manejo de conflictos y colaboración efectiva en ambientes laborales.",
+                badge: "Taller Práctico"
+            },
+            {
+                id: 4,
+                title: "Taller de Elaboración de CV y Simulacro de Entrevista",
+                category: "Preparación Laboral",
+                duration: "8 Horas",
+                modality: "Virtual En Vivo",
+                desc: "Diseña un currículum atractivo y practica respuestas ganadoras ante reclutadores exigentes.",
+                badge: "Clave Empleabilidad"
+            },
+            {
+                id: 5,
+                title: "Liderazgo Organizacional y Gestión de Equipos",
+                category: "Capacitación Empresarial",
+                duration: "24 Horas",
+                modality: "In-Company / Virtual",
+                desc: "Programa de entrenamiento para supervisores y jefes orientado a metas y motivación del personal.",
+                badge: "B2B Corporativo"
+            },
+            {
+                id: 6,
+                title: "Atención al Cliente de Alto Impacto y Fidelización",
+                category: "Preparación Laboral",
+                duration: "16 Horas",
+                modality: "Presencial",
+                desc: "Técnicas modernas de servicio, escucha activa y manejo de reclamos para posiciones comerciales.",
+                badge: "Certificado NEGORA"
+            }
+        ];
+
+        // Mock Data for Blog Articles
+        const BLOG_DATA = [
+            {
+                id: 1,
+                title: "¿Cómo estructurar un CV de impacto sin experiencia previa?",
+                tag: "CV & Perfil",
+                date: "14 Sep 2026",
+                desc: "Descubre cómo resaltar tus proyectos académicos, voluntariados y habilidades clave para destacar en las primeras etapas de selección."
+            },
+            {
+                id: 2,
+                title: "10 errores más comunes en una entrevista laboral y cómo evitarlos",
+                tag: "Entrevistas",
+                date: "02 Sep 2026",
+                desc: "Desde la impuntualidad hasta no investigar sobre la empresa: repasa los fallos que pueden dejarte fuera del proceso."
+            },
+            {
+                id: 3,
+                title: "Las 5 habilidades blandas más solicitadas por las empresas este año",
+                tag: "Tendencias",
+                date: "28 Ago 2026",
+                desc: "El trabajo en equipo, la adaptabilidad al cambio y la resolución ágil de problemas son las competencias mejor valoradas."
+            }
+        ];
+
+        // Navigation Controller
+        function showSection(sectionId) {
+            document.querySelectorAll('.section-block').forEach(sec => sec.classList.add('hidden'));
+            
+            const target = document.getElementById(`sec-${sectionId}`);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+
+            // Highlight nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-sec') === sectionId) {
+                    btn.classList.add('text-brand-600', 'bg-slate-100');
+                } else {
+                    btn.classList.remove('text-brand-600', 'bg-slate-100');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function mobileNav(sectionId) {
+            showSection(sectionId);
+            toggleMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Workflow View Switch
+        function switchWorkflow(type) {
+            const candView = document.getElementById('flow-candidate-view');
+            const empView = document.getElementById('flow-employer-view');
+            const candBtn = document.getElementById('btn-flow-cand');
+            const empBtn = document.getElementById('btn-flow-emp');
+
+            if (type === 'candidate') {
+                candView.classList.remove('hidden');
+                empView.classList.add('hidden');
+                candBtn.className = 'px-6 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-slate-900 shadow-sm transition-all';
+                empBtn.className = 'px-6 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-all';
+            } else {
+                candView.classList.add('hidden');
+                empView.classList.remove('hidden');
+                empBtn.className = 'px-6 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm bg-white text-slate-900 shadow-sm transition-all';
+                candBtn.className = 'px-6 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-all';
+            }
+        }
+
+        // Portal Role Switch
+        function switchPortalRole(role) {
+            const candDash = document.getElementById('portal-candidate-dashboard');
+            const empDash = document.getElementById('portal-employer-dashboard');
+            const candBtn = document.getElementById('portal-role-cand');
+            const empBtn = document.getElementById('portal-role-emp');
+
+            if (role === 'candidate') {
+                candDash.classList.remove('hidden');
+                empDash.classList.add('hidden');
+                candBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-brand-600 text-white transition-all';
+                empBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all';
+            } else {
+                candDash.classList.add('hidden');
+                empDash.classList.remove('hidden');
+                empBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white transition-all';
+                candBtn.className = 'px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all';
+            }
+        }
+
+        // Job Filtering Logic
+        function renderJobs(jobs) {
+            const container = document.getElementById('jobs-grid');
+            const countElem = document.getElementById('jobs-count');
+            countElem.innerText = jobs.length;
+
+            if (jobs.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-slate-200">
+                        <i class="fa-solid fa-search text-3xl text-slate-300 mb-3"></i>
+                        <p class="font-bold text-slate-700">No se encontraron ofertas con los filtros aplicados</p>
+                        <p class="text-xs text-slate-500 mt-1">Intenta cambiar las palabras clave o borrar los filtros.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = jobs.map(job => `
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-3">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 border border-brand-100">${job.area}</span>
+                            <span class="text-[11px] font-bold text-emerald-600">${job.salary}</span>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-1">${job.title}</h3>
+                        <p class="text-xs font-semibold text-slate-500 mb-3"><i class="fa-solid fa-building mr-1"></i>${job.company}</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">${job.desc}</p>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-2 text-[10px] text-slate-500 mb-4 pt-3 border-t border-slate-100">
+                            <span><i class="fa-solid fa-location-dot mr-1"></i>${job.location}</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-laptop-house mr-1"></i>${job.modality}</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i>${job.schedule}</span>
+                        </div>
+                        <button onclick="openJobDetail(${job.id})" class="w-full py-2.5 bg-slate-900 hover:bg-brand-600 text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1">
+                            Ver Oferta & Postularme
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterJobs() {
+            const keyword = document.getElementById('filter-keyword').value.toLowerCase();
+            const location = document.getElementById('filter-location').value;
+            const modality = document.getElementById('filter-modality').value;
+            const area = document.getElementById('filter-area').value;
+
+            const filtered = JOBS_DATA.filter(job => {
+                const matchKey = job.title.toLowerCase().includes(keyword) || job.company.toLowerCase().includes(keyword) || job.desc.toLowerCase().includes(keyword);
+                const matchLoc = location === 'all' || job.location === location;
+                const matchMod = modality === 'all' || job.modality === modality;
+                const matchArea = area === 'all' || job.area === area;
+
+                return matchKey && matchLoc && matchMod && matchArea;
+            });
+
+            renderJobs(filtered);
+        }
+
+        function resetJobFilters() {
+            document.getElementById('filter-keyword').value = '';
+            document.getElementById('filter-location').value = 'all';
+            document.getElementById('filter-modality').value = 'all';
+            document.getElementById('filter-area').value = 'all';
+            renderJobs(JOBS_DATA);
+        }
+
+        function quickHeroSearch() {
+            const val = document.getElementById('hero-search-input').value;
+            showSection('empleos');
+            document.getElementById('filter-keyword').value = val;
+            filterJobs();
+        }
+
+        function openJobDetail(id) {
+            const job = JOBS_DATA.find(j => j.id === id);
+            if (!job) return;
+
+            document.getElementById('modal-job-title').innerText = job.title;
+            document.getElementById('modal-job-company').innerText = job.company;
+            document.getElementById('modal-job-loc').innerText = job.location;
+            document.getElementById('modal-job-mod').innerText = job.modality;
+            document.getElementById('modal-job-desc').innerText = job.desc;
+
+            const reqsList = document.getElementById('modal-job-reqs');
+            reqsList.innerHTML = job.reqs.map(r => `<li>${r}</li>`).join('');
+
+            openModal('modal-job-detail');
+        }
+
+        // Render Courses Logic
+        function renderCourses(courses) {
+            const container = document.getElementById('courses-grid');
+            container.innerHTML = courses.map(course => `
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-100">${course.category}</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-amber-100 text-amber-800">${course.badge}</span>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-2">${course.title}</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">${course.desc}</p>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] text-slate-500 mb-4 pt-3 border-t border-slate-100">
+                            <span><i class="fa-regular fa-clock mr-1"></i>${course.duration}</span>
+                            <span><i class="fa-solid fa-graduation-cap mr-1"></i>${course.modality}</span>
+                        </div>
+                        <button onclick="showToast('Inscripción registrada. Un asesor te contactará.', 'success')" class="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl transition-colors">
+                            Ver Capacitación e Inscribirme
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCourses(category, btnElem) {
+            document.querySelectorAll('.course-tab-btn').forEach(btn => {
+                btn.className = 'course-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all';
+            });
+
+            if (btnElem) {
+                btnElem.className = 'course-tab-btn active px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-600 text-white shadow-sm transition-all';
+            }
+
+            if (category === 'todos') {
+                renderCourses(COURSES_DATA);
+            } else {
+                const filtered = COURSES_DATA.filter(c => c.category === category);
+                renderCourses(filtered);
+            }
+        }
+
+        // Render Blog
+        function renderBlog() {
+            const container = document.getElementById('blog-grid');
+            container.innerHTML = BLOG_DATA.map(art => `
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-sky-50 text-sky-700">${art.tag}</span>
+                            <span class="text-[10px] text-slate-400">${art.date}</span>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-2">${art.title}</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">${art.desc}</p>
+                    </div>
+                    <button onclick="showToast('Artículo completo cargado', 'info')" class="text-xs font-bold text-brand-600 hover:underline inline-flex items-center gap-1">
+                        Leer artículo completo &rarr;
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Render Home Vacancies Preview
+        function renderHomeVacancies() {
+            const container = document.getElementById('home-vacancies-grid');
+            const preview = JOBS_DATA.slice(0, 3);
+            container.innerHTML = preview.map(job => `
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 border border-brand-100 inline-block mb-3">${job.area}</span>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">${job.title}</h3>
+                        <p class="text-xs text-slate-500 mb-3">${job.company} • ${job.location}</p>
+                        <p class="text-xs text-slate-600 leading-relaxed line-clamp-2 mb-4">${job.desc}</p>
+                    </div>
+                    <button onclick="showSection('empleos'); openJobDetail(${job.id});" class="w-full py-2 bg-slate-100 hover:bg-brand-600 hover:text-white font-bold text-xs rounded-xl transition-colors">
+                        Postularme Ahora
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Modal Helpers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Form Submission Handlers
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('¡Gracias por comunicarte! Tu mensaje ha sido enviado a NEGORA.', 'success');
+            e.target.reset();
+        }
+
+        function handleCandidateSubmit(e) {
+            e.preventDefault();
+            closeModal('modal-cand-reg');
+            showToast('¡Perfil creado exitosamente! Te hemos asignado tu acceso al Portal NEGORA.', 'success');
+            showSection('portal');
+            switchPortalRole('candidate');
+            e.target.reset();
+        }
+
+        function handleEmployerSubmit(e) {
+            e.preventDefault();
+            closeModal('modal-emp-reg');
+            showToast('¡Solicitud de talento recibida! Un consultor NEGORA se comunicará pronto.', 'success');
+            e.target.reset();
+        }
+
+        function handleApplyJob(e) {
+            e.preventDefault();
+            closeModal('modal-job-detail');
+            showToast('¡Postulación enviada con éxito! Revisa el seguimiento en tu Portal.', 'success');
+        }
+
+        // Toast Notification System
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let bgClass = 'bg-slate-900 text-white';
+            let icon = 'fa-circle-info';
+
+            if (type === 'success') {
+                bgClass = 'bg-emerald-600 text-white';
+                icon = 'fa-circle-check';
+            } else if (type === 'error') {
+                bgClass = 'bg-rose-600 text-white';
+                icon = 'fa-triangle-exclamation';
+            }
+
+            toast.className = `${bgClass} pointer-events-auto px-4 py-3 rounded-2xl shadow-xl border border-white/10 text-xs font-bold flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0`;
+            toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Window Load Initialization
+        window.onload = function() {
+            renderJobs(JOBS_DATA);
+            renderCourses(COURSES_DATA);
+            renderBlog();
+            renderHomeVacancies();
+        };
+    </script>
+</body>
+</html>
